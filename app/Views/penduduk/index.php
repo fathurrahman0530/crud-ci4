@@ -7,7 +7,9 @@
 
                 <h3 class="mt-2">Data Penduduk</h3>
 
-                <table class="table table-hover mt-2">
+                <a href="" class="btn btn-primary mt-3">Add Penduduk</a>
+
+                <table class="table table-hover mt-3">
                     <thead>
                         <tr>
                             <th>No.</th>
@@ -19,18 +21,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            $no = 1;
+                            foreach ($penduduk as $p) :
+                        ?>
                         <tr>
-                            <td>1</td>
-                            <td>Fathur Rahman</td>
-                            <td>Laki - Laki</td>
-                            <td>Islam</td>
-                            <td>BTN Andi Tonro Permai</td>
+                            <td><?= $no++; ?></td>
+                            <td><?= $p['nama_penduduk']; ?></td>
+                            <td><?= $p['jenis_kelamin'] ?></td>
+                            <td><?= $p['agama']; ?></td>
+                            <td><?= $p['alamat']; ?></td>
                             <td>
-                                <a href="" class="btn btn-default">Show</a>
-                                <a href="" class="btn btn-success">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                <a href="" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
