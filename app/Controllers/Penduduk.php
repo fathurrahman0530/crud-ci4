@@ -40,7 +40,47 @@ class Penduduk extends BaseController
 
         ];
 
+        if (empty($data['penduduk'])) {
+            
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Nik penduduk ' . $slug . ' tidak ditemukan..!!');
+
+        }
+
         return view('penduduk/detail', $data);
+
+    }
+
+    public function create(){
+        
+        $data   = [
+
+            'title' => 'Tambah Data Penduduk',
+
+        ];
+
+        return view('penduduk/create', $data);
+
+    }
+
+    public function save(){
+        
+        // $slug = url_title($this->request->getVar('nik'), '-', true);
+
+       $this->pendudukModel->save([
+
+            'nik' => $this->request->getVar('nik'),
+            'nama_penduduk' => $this->request->getVar('namaPenduduk'),
+            'jenis_kelamin' => $this->request->getVar('jenisKelamin'),
+            'agama' => $this->request->getVar('agama'),
+            'alamat' => $this->request->getVar('alamat'),
+            'image' => $this->request->getVar('gambar'),
+            'slug' => $this->request->getVar('nik')
+
+       ]);
+
+       session()->setFlashdata('pesan', 'Data penduduk berhasil ditambahkan');
+
+       return redirect()->to('/penduduk');
 
     }
 
