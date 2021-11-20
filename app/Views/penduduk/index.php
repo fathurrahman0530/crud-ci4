@@ -32,7 +32,7 @@
                             <td><?= $p['agama']; ?></td>
                             <td><?= $p['alamat']; ?></td>
                             <td>
-                                <a href="" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                <a href="/penduduk/<?= $p['slug']; ?>" class="btn btn-info"><i class="fas fa-eye"></i></a>
                                 <a href="" class="btn btn-success"><i class="fas fa-edit"></i></a>
                                 <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
